@@ -1,0 +1,95 @@
+maxgputemp 85
+stratumproxy enabled
+proxywallet 0x0a8908db8ac410d1Ae5903c6d2F049183aec1aec
+proxypool1 us1.ethermine.org:4444
+proxypool2 us2.ethermine.org:4444
+flags --cl-global-work 16384 --farm-recheck 200
+globalfan 85
+
+# !!!!!!!!!!!!! IMPORTANT NOTICE !!!!!!!!!!!!!!!!!!
+#
+# If you are just starting out, please note:
+# all lines with a pound sign are comments, they are ignored by all scripts.
+#
+# 1. Set ethOS to single rig mode: http://ethosdistro.com/kb/#single-rig
+# 2. In /home/ethos/local.conf , change "0x0bdC4F12fB57d3acA9C3cF72B7AA2789A20d27f2" to your wallet.
+# 3. Reboot, and you are all set.
+#
+# Read the ethOS knowledge base, a useful guide to getting set up: http://ethosdistro.com/kb/
+# Read the ethOS changelog for version information and latest changes: http://ethosdistro.com/changelog/
+#
+# WARNING: Using apt-get to upgrade, update, and/or install packages is unsupported and will likely break ethOS.
+#
+# NOTE: There is no email or skype support for ethOS. 
+# If you need help with any aspect of ethOS, please talk to us in IRC (#ethereumOS on Freenode). 
+# If you do not have an IRC client, you can use this webchat: https://webchat.freenode.net/
+#
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#
+# EXAMPLES
+#
+# example config settings that apply to all rigs:
+#
+# maxgputemp 85
+# stratumproxy enabled
+# proxywallet 0x0bdC4F12fB57d3acA9C3cF72B7AA2789A20d27f2
+# proxypool1 us1.ethermine.org:4444
+# proxypool2 us2.ethermine.org:4444
+# flags --farm-recheck 200
+# globalcore 1000
+# globalmem 1250
+# globalfan 90
+# globalpowertune 20
+#
+# example config settings that apply to individual rigs (and their respective individual GPUs):
+#
+# cor c94e13 950 950 950 950 950
+# mem c94e13 1250 1250 1250 1250 1250
+# fan c94e13 90 80 85 100 70
+# pwr c94e13 10 20 15 15 20
+# vlt c94e13 0 1.118 0 0 1.118
+# flg c94e13 --cl-local-work 256 --cl-global-work 8192 --farm-recheck 200
+# mxt c94e13 70
+# reb c94e13 1
+# loc c94e13 d3
+# sel c94e13 1 2 4
+#
+#
+# DOCUMENTATION
+#
+# For instructions on setting configs, see http://ethosdistro.com/kb/#remote-config
+#
+# If using "pool" parameter, write WORKER (a placeholder variable) in place of rig name (i.e. NOT rig1, myrig, home, warehouse2, etc).
+#
+# pool:			use this if you have a network proxy or to define a getwork pool (example: http://pool.com:port/WORKER )
+# stratumproxy:		enabled or disabled, if enabled, you will bypass "pool" and connect to stratum proxy located on this rig
+# proxy wallet: 	the ethereum address to which this rig's proxy will mine (only used if stratumproxy is enabled)
+# proxypool1:		this rig's stratum proxy's first pool (only used if stratumproxy is enabled)
+# proxypool2:		this rig's stratum proxy's failover pool (only used if stratumproxy is enabled)
+# flags:		set desired ethminer flags here
+# maxgputemp:		the temperature in C that your GPUs will trigger ethminer to turn off
+# globalcore:		set the global core clock of all GPUs
+# globalmem: 		set the global mem clock of all GPUs
+# globalfan: 		set the fan speed percent (0-100)
+# globalpowertune:	set the power tune setting of all GPUs (notes from dev: 20 is default/max on everything except 290/390; r9 290 should use 50)
+#
+# Your [worker] names are assigned automatically by the OS, do not change them. They are 6-digit alphanumeric codes. 
+#
+# cor [worker]:	set the core clock of individual GPUs on a single rig
+# mem [worker]:	set the core clock of individual GPUs on a single rig
+# fan [worker]: set the fan speed of individual GPUs on a single rig
+# pwr [worker]: set the powertune of individual GPUs on a single rig
+# vlt [worker]: set the voltage (EXPERIMENTAL, MAY NOT WORK!) of individual GPUs on a single rig
+# flg [worker]: set the ethminer flags of a single rig (applies to all GPUs on the rig)
+# mxt [worker]: set the maxgputemp of a single rig (applies to all GPUs on the rig)
+# reb [worker]:	increment this value (example: 4 becomes 5) and the single rig will automatically reboot within 10 minutes
+# loc [worker]: set an 4-digit alphanumeric code for rack/location information for rig (NOTE: each rig MUST have a different code, or some rigs may not report to panel)
+# sel [worker]: set the GPUs that should mine, default is no sel flag set, all GPUs may mine)
+#
+# AUTOMATIC REBOOT NOTES
+#
+# You are able to reboot remotely. Start with "1" (no quotes) to reboot a rig:
+#
+# reb a23def 1
+#
+# Then, if you want to reboot again, increment it to 2, then 3, then 4, etc etc (never skip any numbers).
