@@ -1,0 +1,7 @@
+maxgputemp 85
+stratumproxy enabled
+proxywallet 0x0a8908db8ac410d1Ae5903c6d2F049183aec1aec
+proxypool1 us1.ethermine.org:4444
+proxypool2 us2.ethermine.org:4444
+flags --cl-global-work 16384 --farm-recheck 200
+globalfan 85
