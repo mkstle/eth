@@ -4,9 +4,9 @@ stratumproxy enabled
 
 proxywallet 0x0a8908db8ac410d1Ae5903c6d2F049183aec1aec
 
-proxypool1 us1.ethermine.org:3333
+proxypool1 us1.ethpool.org:3333
 
-proxypool2 us2.ethermine.org:3333
+proxypool2 us2.ethpool.org:3333
 
 flags --cl-global-work 16384 --farm-recheck 200
 
